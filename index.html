@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <!-- sidebar -->
+    <aside class="sidebar-meanu">
+        <div id="logo-main-plus">
+            main <span class="logo-character">+</span>
+        </div>
+        <div class="quick-cration-wr">
+            <button class="btn-quick-wr">create quick work order</button>
+        </div>
+        <nav class="navigation-menu">
+            <ul class="menu-list">
+                <li id="active-page"><img id="dashboard-icon" class="icon" src="./assets/icons/dashboard-interface.png"
+                        alt="dashboard icon">
+                    <span>dashboard</span>
+                </li>
+                <li><img id="workOrder-icon" class="icon" src="./assets/icons/workOrder.png" alt="work order icon">
+                    <span>work orders</span>
+                </li>
+                <li><img id="asset-icon" class="icon" src="./assets/icons/assets.png" alt="assets icon">
+                    <span>assets</span>
+                </li>
+                <li><img id="pm-icon" class="icon" src="./assets/icons/preventive.png" alt="preventive icon">
+                    <span>preventive maintenacne</span>
+                </li>
+                <li><img id="inventory-icon" class="icon" src="./assets/icons/inventory-management.png"
+                        alt="inventory icon"><span>inventory</span></li>
+                <li><img id="analytic-icon" class="icon" src="./assets/icons/analysis.png"
+                        alt="analytics icon"><span>analytics</span></li>
+            </ul>
+            <div class="setting-btn">
+                <img id="setting-icon" class="icon" src="./assets/icons/settings.png"
+                    alt="setting icon"><span>settings</span>
+            </div>
+        </nav>
+
+    </aside>
+    <!-- sidebar -->
+    <div class="wrap-layout-continer">
+        <!-- header -->
+        <header class="header-page">
+            <div class="left-header search-bar">
+                <img id="search-icon" class="icon" src="./assets/icons/search.png" alt="Search icon">
+                <input id="search-bar" type="text" name="search-bar" placeholder="search...">
+            </div>
+            <div class="right-header">
+                <div class="notification-icon">
+                    <img id="noifi-icon" class="icon" src="./assets/icons/notification.png" alt="Notification icon">
+                </div>
+                <div class="emial-icon">
+                    <img id="emi-icon" class="icon" src="./assets/icons/email.png" alt="Emial icon" />
+                </div>
+                <div class="user-details">
+                    <div class="avatar">
+                        <img id="user-avatar" class="icon" src="./assets/images/manager.jpg" alt="User avatar">
+                    </div>
+                    <div class="user-data">
+                        <p class="user-fullName">sabri zekkour feraht</p>
+                        <span class="user-role">engineer</span>
+                    </div>
+                    <div class="drop-down-menu">
+                        <img id="drow-down-icon" class="icon" src="./assets/icons/down-arrow.png" alt="Drop down menu">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- header -->
+
+        <!-- main -->
+        <!-- continer -->
+        <div class="main-container">
+            <main class="main-page dashbord-data">
+                <header class="main-head">
+                    <h1>dashboard</h1>
+                    <p>Welecome to back,<span id="username">sabri</span>! here waht occurred in your maintenance
+                        operations
+                        today</p>
+                </header>
+
+                <section class="kpi-cards">
+                    <div class="cards workorder-kpi">
+                        <div class="continer-card">
+                            <div class="wo-icon">
+                                <img class="icon" src="./assets/icons/to-do-list.png" alt="opened work order">
+                            </div>
+                            <div class="title">
+                                <p class="title-text"> opened work order</p>
+                                <div class="value">
+                                    <p>24</p>
+                                    <div class="sub-details">
+                                        <img class="icon" src="./assets/icons/arrow-up.svg" alt="arrow up">
+                                        <span>12%</span>
+                                        <p>from yesterday</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="linechart-img">
+
+                        </div>
+                    </div>
+
+                    <div class="cards workorder-kpi">
+                        <div class="continer-card">
+                            <div class="wo-icon green">
+                                <img class="icon" src="./assets/icons/check.png" alt="opened work order">
+                            </div>
+                            <div class="title">
+                                <p class="title-text"> compeleted today</p>
+                                <div class="value">
+                                    <p>18</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-green" src="./assets/icons/arrow-up.svg" alt="arrow up">
+                                        <span class="percentage green">8%</span>
+                                        <p>from yesterday</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="linechart-img">
+
+                        </div>
+                    </div>
+
+                    <div class="cards workorder-kpi">
+                        <div class="continer-card">
+                            <div class="wo-icon orange">
+                                <img class="icon" src="./assets/icons/clock.png" alt="opened work order">
+                            </div>
+                            <div class="title">
+                                <p class="title-text"> overdue work order</p>
+                                <div class="value">
+                                    <p>07</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-orange" src="./assets/icons/arrow-up.svg" alt="arrow up">
+                                        <span class="percentage orange">16%</span>
+                                        <p>from yesterday</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="linechart-img">
+
+                        </div>
+                    </div>
+
+                    <div class="cards workorder-kpi">
+                        <div class="continer-card">
+                            <div class="wo-icon green">
+                                <img class="icon" src="./assets/icons/availability.png" alt="availability icon">
+                            </div>
+                            <div class="title">
+                                <p class="title-text"> assets availability</p>
+                                <div class="value">
+                                    <p>92.5%</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-green" src="./assets/icons/arrow-up.svg" alt="arrow up">
+                                        <span class="percentage green">2.4%</span>
+                                        <p>from yesterday</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="linechart-img">
+
+                        </div>
+                    </div>
+
+                    <div class="cards downtime-kpi">
+                        <div class="continer-card">
+                            <div class="wo-icon red">
+                                <img class="icon" src="./assets/icons/downtime.png" alt="total downtime icon">
+                            </div>
+                            <div class="title">
+                                <p class="title-text">total downtime (hrs)</p>
+                                <div class="value">
+                                    <p>6.5</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-red" src="./assets/icons/arrow-up.svg" alt="arrow up">
+                                        <span class="percentage red">18%</span>
+                                        <p>from yesterday</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="linechart-img">
+
+                        </div>
+                    </div>
+
+                </section>
+            </main>
+        </div>
+        <!-- continer -->
+        <!-- main -->
+    </div>
+
+
+
+</body>
+
+</html>
