@@ -6,10 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- google font temporary -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+        rel="stylesheet">
     <title>Dashboard</title>
 </head>
 
 <body>
+    <!-- <div class="layout-container"> -->
     <!-- sidebar -->
     <aside class="sidebar-meanu">
         <div id="logo-main-plus">
@@ -77,7 +84,6 @@
         <!-- header -->
 
         <!-- main -->
-        <!-- continer -->
         <div class="main-container">
             <main class="main-page dashbord-data">
                 <header class="main-head">
@@ -88,7 +94,7 @@
                 </header>
 
                 <section class="kpi-cards">
-                    <div class="cards workorder-kpi">
+                    <div class="cards">
                         <div class="continer-card">
                             <div class="wo-icon">
                                 <img class="icon" src="./assets/icons/to-do-list.png" alt="opened work order">
@@ -105,14 +111,12 @@
                                 </div>
                             </div>
                         </div>
-
-
                         <div class="linechart-img">
 
                         </div>
                     </div>
 
-                    <div class="cards workorder-kpi">
+                    <div class="cards">
                         <div class="continer-card">
                             <div class="wo-icon green">
                                 <img class="icon" src="./assets/icons/check.png" alt="opened work order">
@@ -136,7 +140,7 @@
                         </div>
                     </div>
 
-                    <div class="cards workorder-kpi">
+                    <div class="cards">
                         <div class="continer-card">
                             <div class="wo-icon orange">
                                 <img class="icon" src="./assets/icons/clock.png" alt="opened work order">
@@ -160,7 +164,7 @@
                         </div>
                     </div>
 
-                    <div class="cards workorder-kpi">
+                    <div class="cards">
                         <div class="continer-card">
                             <div class="wo-icon green">
                                 <img class="icon" src="./assets/icons/availability.png" alt="availability icon">
@@ -184,7 +188,7 @@
                         </div>
                     </div>
 
-                    <div class="cards downtime-kpi">
+                    <div class="cards">
                         <div class="continer-card">
                             <div class="wo-icon red">
                                 <img class="icon" src="./assets/icons/downtime.png" alt="total downtime icon">
@@ -209,14 +213,303 @@
                     </div>
 
                 </section>
+
+
+                <section class="grid-dashbord">
+                    <div class="box bar-chart ">
+                        <div class="details-of-chart">
+                            <div class="title-and-selection">
+                                <h4 class="chart-title">work orders overview</h4>
+                                <select name="date" id="select-date">
+                                    <option value="week"> this week</option>
+                                    <option value="monthly">this month</option>
+                                    <option value="annually"> this year</option>
+                                </select>
+                            </div>
+
+                            <div class="legend-data">
+                                <ul>
+                                    <li><span class="circle primary"></span> reactive maintenace</li>
+                                    <li><span class="circle secondary"></span> preventive maintenace</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bar-container">
+                            <canvas id="mychart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="box doughnut-chart">
+                        <div class="details-of-chart">
+                            <div class="title-and-selection">
+                                <h4 class="chart-title">work orders state</h4>
+                            </div>
+                        </div>
+
+                        <div class="total-state">
+                            <p>total 124</p>
+                        </div>
+
+                        <div class="doughunt-contianer-box">
+
+                            <div class="doughnut-container">
+                                <canvas id="doughnut-chart"></canvas>
+                            </div>
+
+                            <div class="dounghnut-legend">
+                                <ul>
+                                    <li><span class="circle primary"></span>open</li>
+                                    <li><span class="circle secondary"></span>in progress</li>
+                                    <li><span class="circle thrid"></span>on hold</li>
+                                    <li><span class="circle fourth"></span>completed</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box mtbf-chart">
+                        <div class="details-of-chart">
+                            <div class="title-and-selection">
+                                <h4 class="chart-title">MTBF vs MTTR</h4>
+                            </div>
+                        </div>
+                        <div class="mtbf-chart-contianer">
+                            <canvas id="line-chart"></canvas>
+                        </div>
+                        <div class="legend-data mtbf-mttr-chart-legend">
+                            <ul>
+                                <li><span class="circle primary"></span>MTBF</li>
+                                <li><span class="circle secondary"></span> MTTR</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="box recent-work-order">
+                        <div class="details-of-chart">
+                            <div class="title-and-selection">
+                                <h4 class="chart-title">recent work orders</h4>
+                                <button class="btn-view-all-recent-work-order">view all</button>
+                            </div>
+                        </div>
+
+                        <div class="work-order-recent-list">
+                            <ul class="wo-list">
+                                <li class="card-details">
+                                    <div class="wo-id-machinename">
+                                        <div class="wo-icon">
+                                            <img class="icon" src="./assets/icons/to-do-list.png"
+                                                alt="opened work order">
+                                        </div>
+                                        <div class="text-details">
+                                            <p>WO-1024</p>
+                                            <p class="status-wo">Pump not staring</p>
+                                        </div>
+                                    </div>
+                                    <div class="priority">
+                                        <p class="priority-high">high</p>
+                                    </div>
+                                    <div class="time-base-post">
+                                        <p>2h ago</p>
+                                    </div>
+                                </li>
+
+                                <li class="card-details">
+                                    <div class="wo-id-machinename">
+                                        <div class="wo-icon">
+                                            <img class="icon" src="./assets/icons/to-do-list.png"
+                                                alt="opened work order">
+                                        </div>
+                                        <div class="text-details">
+                                            <p>WO-1024</p>
+                                            <p class="status-wo">Pump not staring</p>
+                                        </div>
+                                    </div>
+                                    <div class="priority">
+                                        <p class="priority-high">high</p>
+                                    </div>
+                                    <div class="time-base-post">
+                                        <p>2h ago</p>
+                                    </div>
+                                </li>
+
+                                <li class="card-details">
+                                    <div class="wo-id-machinename">
+                                        <div class="wo-icon">
+                                            <img class="icon" src="./assets/icons/to-do-list.png"
+                                                alt="opened work order">
+                                        </div>
+                                        <div class="text-details">
+                                            <p>WO-1024</p>
+                                            <p class="status-wo">Pump not staring</p>
+                                        </div>
+                                    </div>
+                                    <div class="priority">
+                                        <p class="priority-medium">medium</p>
+                                    </div>
+                                    <div class="time-base-post">
+                                        <p>2h ago</p>
+                                    </div>
+                                </li>
+
+                                <li class="card-details">
+                                    <div class="wo-id-machinename">
+                                        <div class="wo-icon">
+                                            <img class="icon" src="./assets/icons/to-do-list.png"
+                                                alt="opened work order">
+                                        </div>
+                                        <div class="text-details">
+                                            <p>WO-1024</p>
+                                            <p class="status-wo">Pump not staring</p>
+                                        </div>
+                                    </div>
+                                    <div class="priority">
+                                        <p class="priority-high">high</p>
+                                    </div>
+                                    <div class="time-base-post">
+                                        <p>2h ago</p>
+                                    </div>
+                                </li>
+
+                                <li class="card-details">
+                                    <div class="wo-id-machinename">
+                                        <div class="wo-icon">
+                                            <img class="icon" src="./assets/icons/to-do-list.png"
+                                                alt="opened work order">
+                                        </div>
+                                        <div class="text-details">
+                                            <p>WO-1024</p>
+                                            <p class="status-wo">Pump not staring</p>
+                                        </div>
+                                    </div>
+                                    <div class="priority">
+                                        <p class="priority-low">low</p>
+                                    </div>
+                                    <div class="time-base-post">
+                                        <p>2h ago</p>
+                                    </div>
+                                </li>
+
+                                <li class="card-details">
+                                    <div class="wo-id-machinename">
+                                        <div class="wo-icon">
+                                            <img class="icon" src="./assets/icons/to-do-list.png"
+                                                alt="opened work order">
+                                        </div>
+                                        <div class="text-details">
+                                            <p>WO-1024</p>
+                                            <p class="status-wo">Pump not staring</p>
+                                        </div>
+                                    </div>
+                                    <div class="priority">
+                                        <p class="priority-medium">medium</p>
+                                    </div>
+                                    <div class="time-base-post">
+                                        <p>2h ago</p>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="box top-assets-downtime">
+                        <div class="details-of-chart">
+                            <div class="title-and-selection">
+                                <h4 class="chart-title">top 5 assets by downtime</h4>
+                            </div>
+                        </div>
+
+                        <div class="top-five-assets-table">
+                            <table class="pro-assets-table">
+                                <thead>
+                                    <tr>
+                                        <th>assets</th>
+                                        <th>downtime (hrs)</th>
+                                        <th>total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>centrifugal pump #1</td>
+                                        <td>1.8</td>
+                                        <td class="total-value">19.6% <div class="progress-bar value-1"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>compressor #3</td>
+                                        <td>1.2</td>
+                                        <td class="total-value">13.0% <div class="progress-bar value-2"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>HVAC unit #2</td>
+                                        <td>0.9</td>
+                                        <td class="total-value">9.8% <div class="progress-bar value-3"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>generator #1</td>
+                                        <td>0.4</td>
+                                        <td class="total-value">4.3% <div class="progress-bar value-4"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>centrifugal pump #1</td>
+                                        <td>0.3</td>
+                                        <td class="total-value">3.3% <div class="progress-bar value-5"></div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class=" box assets-health">
+                        <div class="details-of-chart">
+                            <div class="title-and-selection">
+                                <h4 class="chart-title">assets by healthy</h4>
+                            </div>
+                        </div>
+                        <div class="total-state">
+                            <p>total 124</p>
+                        </div>
+
+                        <div class="doughunt-contianer-box">
+
+                            <div class="doughnut-container asset-health">
+                                <canvas id="doughnut-chart-2"></canvas>
+                            </div>
+
+                            <div class="dounghnut-legend asset-health-legend">
+                                <ul>
+                                    <li><span class="circle healthy"></span>healthy</li>
+                                    <li><span class="circle worning"></span>in worning</li>
+                                    <li><span class="circle critical"></span>critical</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
             </main>
         </div>
-        <!-- continer -->
         <!-- main -->
     </div>
 
+    <footer>
+        <div class="copy-right">&copy; 2026 CMMS all rights reserved<br> powerd by <span id="devlopername">sabri</span>
+            <span id="developerlastname">Zekkour ferhat</span>
+        </div>
+    </footer>
 
 
+    <script src=" ./assets/js/chart.umd.js"></script>
+    <script src="./assets/js/chart_manipulation/dashboard_render.js"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
+<!-- js file -->
 
 </html>
