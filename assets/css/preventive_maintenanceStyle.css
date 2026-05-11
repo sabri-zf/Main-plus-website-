@@ -1,0 +1,179 @@
+/* Preventive maintenance: filter bar + table */
+
+.pm-toolbar {
+    margin: 20px 0 16px;
+    padding: 12px 14px;
+    background: #fff;
+    border: 1px solid #ececf3;
+    border-radius: 14px;
+}
+
+.pm-toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pm-search input,
+.pm-toolbar select {
+    height: 40px;
+    border: 1px solid #e3e5ef;
+    border-radius: 10px;
+    background: #fff;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
+    color: #2a2d3f;
+    outline: none;
+}
+
+.pm-search input {
+    width: 260px;
+    padding: 0 12px;
+}
+
+.pm-toolbar select {
+    min-width: 110px;
+    padding: 0 10px;
+}
+
+.btn-pm {
+    height: 40px;
+    border: 0;
+    border-radius: 10px;
+    padding: 0 16px;
+    background: #cecdce;
+    color: var(--accent-color);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-pm.btn-outline {
+    color: var(--foreground-text-color);
+    background-color: rgb(240, 239, 239);
+    border: none;
+}
+
+.btn-link-reset {
+    background: transparent;
+    border: 0;
+    color: #5f33ff;
+    font-size: var(--text-size-base);
+    cursor: pointer;
+}
+
+.btn-pm.btn-create-work-order {
+    margin-left: auto;
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.pm-table-wrap {
+    background: #fff;
+    border: 1px solid #ececf3;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.pm-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: "Lato", sans-serif;
+}
+
+.pm-table thead th {
+    text-align: left;
+    font-size: 13px;
+    font-weight: 700;
+    color: #636a80;
+    padding: 14px 16px;
+    background-color: #fafafa;
+    border-bottom: 1px solid #ececf3;
+    white-space: nowrap;
+}
+
+.pm-table tbody td {
+    font-size: 14px;
+    color: var(--foreground-text-color);
+    padding: 14px 16px;
+    vertical-align: middle;
+}
+
+.pm-table tbody tr {
+    border-bottom: 1px solid #ececf3;
+    transition: all .3s ease;
+}
+
+.pm-table tbody tr:hover {
+    background-color: var(--bg-color-table);
+    cursor: pointer;
+}
+
+.sub-code {
+    display: block;
+    margin-top: 2px;
+    font-size: 12px;
+    color: #8b90a2;
+}
+
+.due-soon-date {
+    color: #d28a13;
+    font-weight: 600;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    height: 24px;
+    padding: 0 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.badge-priority-high {
+    background: #ffe9ea;
+    color: #d6404e;
+}
+
+.badge-priority-medium {
+    background: #fff4df;
+    color: #cc8a0f;
+}
+
+.badge-priority-low {
+    background: #e9f8ef;
+    color: #2f9b58;
+}
+
+.badge-status-due {
+    background: #fff2e3;
+    color: #c67a12;
+}
+
+.badge-status-scheduled {
+    background: #e8f5ff;
+    color: #177bbf;
+}
+
+.table-action-btn {
+    border: none;
+    background: transparent;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.table-footer {
+    padding: 12px 16px;
+}
+
+.table-footer p {
+    margin: 0;
+    font-size: 13px;
+    color: #7f8599;
+}

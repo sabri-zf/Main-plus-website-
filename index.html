@@ -5,12 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
     <!-- google font temporary -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
         rel="stylesheet">
     <title>Dashboard</title>
 </head>
@@ -20,34 +20,59 @@
     <!-- sidebar -->
     <aside class="sidebar-meanu">
         <div id="logo-main-plus">
-            main <span class="logo-character">+</span>
+            <img src="./assets/images/main-plus-logo.png" alt="">
         </div>
-        <div class="quick-cration-wr">
+        <!-- <div class="quick-cration-wr">
             <button class="btn-quick-wr">create quick work order</button>
-        </div>
+        </div> -->
         <nav class="navigation-menu">
             <ul class="menu-list">
-                <li id="active-page"><img id="dashboard-icon" class="icon" src="./assets/icons/dashboard-interface.png"
-                        alt="dashboard icon">
-                    <span>dashboard</span>
+                <li class="btn dashbord-btn">
+                    <svg width="25" height="25" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="white"
+                            d="M10 14a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1zm11-5a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1V10a1 1 0 0 1 1-1zM10 2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm11 0a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" />
+                    </svg>
                 </li>
-                <li><img id="workOrder-icon" class="icon" src="./assets/icons/workOrder.png" alt="work order icon">
-                    <span>work orders</span>
+                <li class="btn workorder-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" xml:space="preserve" fill="white">
+                        <path d="M10 24H0V0h18v11h-2V2H2v5h14v2H2v3h13.1v2H2v3h11v2H2v3h8z" />
+                        <path
+                            d="M12 3h3v3h-3zm10.7 11.7-2 2-1.4-1.4 2-2c-.4-.2-.9-.3-1.3-.3q-1.2 0-2.1.9c-.9.9-1.1 2.3-.6 3.4l-5.1 5.1 1.4 1.4 5.1-5.1c1.1.5 2.5.3 3.4-.6.6-.6.9-1.4.9-2.1 0-.5-.1-.9-.3-1.3" />
+                    </svg>
+
                 </li>
-                <li><img id="asset-icon" class="icon" src="./assets/icons/assets.png" alt="assets icon">
-                    <span>assets</span>
+                <li class="btn assets-btn">
+                    <svg width="25" height="25" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#fff"
+                            d="M12 6V2L8 0 4 2v4L0 8v5l4 2 4-2 4 2 4-2V8zM8.09 1.12 11 2.56l-2.6 1.3-2.91-1.44zM5 2.78l3 1.5v3.6l-3-1.5zm-1 11.1-3-1.5v-3.6l3 1.5zm.28-4L1.4 8.42 4 7.12l2.88 1.44zm7.72 4-3-1.5v-3.6l3 1.5zm.28-4L9.4 8.42l2.6-1.3 2.88 1.44z" />
+                    </svg>
                 </li>
-                <li><img id="pm-icon" class="icon" src="./assets/icons/preventive.png" alt="preventive icon">
-                    <span>preventive maintenacne</span>
+                <li class="btn pm-btn">
+                    <svg width="25" height="25" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <title />
+                        <path
+                            d="M42.535 54.254 32 60l-10.535-5.746A22 22 0 0 1 10 34.94V14A10 10 0 0 0 20 4h24a10 10 0 0 0 10 10v20.94a22 22 0 0 1-11.465 19.314" />
+                    </svg>
                 </li>
-                <li><img id="inventory-icon" class="icon" src="./assets/icons/inventory-management.png"
-                        alt="inventory icon"><span>inventory</span></li>
-                <li><img id="analytic-icon" class="icon" src="./assets/icons/analysis.png"
-                        alt="analytics icon"><span>analytics</span></li>
+                <li class="btn inventory-btn">
+                    <svg width="25" height="25" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M0 4.6A2.6 2.6 0 0 1 2.6 2h18.8A2.6 2.6 0 0 1 24 4.6v.8A2.6 2.6 0 0 1 21.4 8H21v10.6c0 1.33-1.07 2.4-2.4 2.4H5.4C4.07 21 3 19.93 3 18.6V8h-.4A2.6 2.6 0 0 1 0 5.4zM2.6 4a.6.6 0 0 0-.6.6v.8a.6.6 0 0 0 .6.6h18.8a.6.6 0 0 0 .6-.6v-.8a.6.6 0 0 0-.6-.6zM8 10a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2z" />
+                    </svg>
+                </li>
+                <li class="btn analytic-btn">
+                    <svg width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+                        xml:space="preserve">
+                        <path
+                            d="M21 9c-1.9 1.2-3 3.4-3 5.6v0c0 3.5 1.3 6.8 3.6 9.4l1.5 1.6c1.1 1.3.2 3.3-1.5 3.3H10.5c-1.7 0-2.6-2-1.5-3.3l1.5-1.6c2.3-2.6 3.6-6 3.6-9.4v0c0-2.3-1.1-4.4-3-5.6zm-2-8v1m-6 0v1m3 2v1m-6 19h12" />
+                    </svg>
+                </li>
             </ul>
             <div class="setting-btn">
-                <img id="setting-icon" class="icon" src="./assets/icons/settings.png"
-                    alt="setting icon"><span>settings</span>
+                <svg width="25" height="25" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#fff"
+                        d="M11.078 0c.294 0 .557.183.656.457l.706 1.957q.379.094.654.192.3.107.78.33l1.644-.87a.7.7 0 0 1 .832.131l1.446 1.495c.192.199.246.49.138.744l-.771 1.807q.191.352.308.604.126.273.312.76l1.797.77c.27.115.437.385.419.674l-.132 2.075a.69.69 0 0 1-.46.605l-1.702.605q-.073.352-.154.606a9 9 0 0 1-.298.774l.855 1.89a.68.68 0 0 1-.168.793l-1.626 1.452a.7.7 0 0 1-.796.096l-1.676-.888a7 7 0 0 1-.81.367l-.732.274-.65 1.8a.7.7 0 0 1-.64.457L9.11 20a.7.7 0 0 1-.669-.447l-.766-2.027a15 15 0 0 1-.776-.29 10 10 0 0 1-.618-.293l-1.9.812a.7.7 0 0 1-.755-.133L2.22 16.303a.68.68 0 0 1-.155-.783l.817-1.78a10 10 0 0 1-.302-.644 14 14 0 0 1-.3-.811L.49 11.74a.69.69 0 0 1-.49-.683l.07-1.921a.69.69 0 0 1 .392-.594L2.34 7.64q.13-.478.23-.748a9 9 0 0 1 .314-.712L2.07 4.46a.68.68 0 0 1 .15-.79l1.404-1.326a.7.7 0 0 1 .75-.138l1.898.784q.314-.209.572-.344.307-.162.824-.346l.66-1.841A.7.7 0 0 1 8.984 0zm-1.054 7.019c-1.667 0-3.018 1.335-3.018 2.983s1.351 2.984 3.018 2.984 3.017-1.336 3.017-2.984-1.35-2.983-3.017-2.983" />
+                </svg>
             </div>
         </nav>
 
@@ -85,7 +110,7 @@
 
         <!-- main -->
         <div class="main-container">
-            <main class="main-page dashbord-data">
+            <!-- <main class="main-page dashbord-data">
                 <header class="main-head">
                     <h1>dashboard</h1>
                     <p>Welecome to back,<span id="username">sabri</span>! here waht occurred in your maintenance
@@ -494,7 +519,775 @@
 
                     </div>
                 </section>
+            </main> -->
+
+            <main class="work-order-page">
+                <header class="main-head">
+                    <h1>worke orders</h1>
+                    <p style="text-transform: lowercase;">view and manage and track all maintenance work orders.</p>
+                </header>
+
+                <section class="kpi-cards">
+                    <div class="cards">
+                        <div class="loading shimmer-effect"></div>
+                        <div class="continer-card">
+                            <div class="wo-icon">
+                                <img class="icon" src="./assets/icons/to-do-list.png" alt="opened work order">
+                            </div>
+                            <div class="title">
+                                <p class="title-text"> Total work order</p>
+                                <div class="value">
+                                    <p>248</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-green" src="./assets/icons/arrow-up.svg" alt="arrow up">
+                                        <span class="green">12%</span>
+                                        <p>from last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="linechart-img">
+
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div class="loading shimmer-effect"></div>
+                        <div class="continer-card">
+                            <div class="wo-icon orange">
+                                <img class="icon" src="./assets/icons/clock.png" alt="opened work order">
+                            </div>
+                            <div class="title">
+                                <p class="title-text"> open</p>
+                                <div class="value">
+                                    <p>18</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-green" src="./assets/icons/arrow-up.svg" alt="arrow up">
+                                        <span class="green">12%</span>
+                                        <p>from last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="linechart-img">
+
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div class="loading shimmer-effect"></div>
+
+                        <div class="continer-card">
+                            <div class="wo-icon red">
+                                <img class="icon calendar" src="./assets/icons/calendar.svg" alt="opened work order">
+                            </div>
+                            <div class="title">
+                                <p class="title-text"> overdue</p>
+                                <div class="value">
+                                    <p>23</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-green" src="./assets/icons/arrow-up.svg" alt="arrow up">
+                                        <span class="percentage green">15%</span>
+                                        <p>from last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="linechart-img">
+
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div class="loading shimmer-effect"></div>
+
+                        <div class="continer-card">
+                            <div class="wo-icon green">
+                                <img class="icon" src="./assets/icons/check.png" alt="availability icon">
+                            </div>
+                            <div class="title">
+                                <p class="title-text"> compeleted</p>
+                                <div class="value">
+                                    <p>101</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-green" src="./assets/icons/arrow-up.svg" alt="arrow up">
+                                        <span class="percentage green">10%</span>
+                                        <p>from last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="linechart-img">
+
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div class="loading shimmer-effect"></div>
+
+                        <div class="continer-card">
+                            <div class="wo-icon blue">
+                                <img class="icon blue" src="./assets/icons/pause-circle.svg" alt="total downtime icon">
+                            </div>
+                            <div class="title">
+                                <p class="title-text">total downtime (hrs)</p>
+                                <div class="value">
+                                    <p>6.5</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-red" src="./assets/icons/arrow-down.svg" alt="arrow up">
+                                        <span class="percentage red">3%</span>
+                                        <p>from last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="linechart-img">
+
+                        </div>
+                    </div>
+                </section>
+
+
+                <section class="wo-toolbar">
+                    <div class="wo-toolbar-left">
+                        <div class="wo-search">
+                            <input type="text" placeholder="Search WO-ID" value="WO-" />
+                        </div>
+
+                        <select name="status" id="status_selector">
+                            <option selected value="">Status</option>
+                            <option value="open">Open</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="on-hold">On Hold</option>
+                            <option value="completed">Completed</option>
+                        </select>
+
+                        <select name="priority" id="priority_selector">
+                            <option selected value="">Priority</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+
+                        <button class="btn-wo btn-outline" type="button">Filters</button>
+                        <button class="btn-link-reset" type="button">Reset</button>
+                    </div>
+
+                    <div class="wo-toolbar-right">
+                        <button id="btn-wo">Create Work Order</button>
+                    </div>
+                </section>
+
+                <section class="workorder-table-wrap">
+                    <table class="workorder-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Asset</th>
+                                <th>Type</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Assigned To</th>
+                                <th>Due Date</th>
+                                <th>Created</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td colspan="19">
+                                    <div class="loading shimmer-effect"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="19">
+                                    <div class="loading shimmer-effect"></div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="19">
+                                    <div class="loading shimmer-effect"></div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="19">
+                                    <div class="loading shimmer-effect"></div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td colspan="19">
+                                    <div class="loading shimmer-effect"></div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td colspan="19">
+                                    <div class="loading shimmer-effect"></div>
+                                </td>
+                            </tr>
+
+
+
+                            <tr>
+                                <td colspan="19">
+                                    <div class="loading shimmer-effect"></div>
+                                </td>
+                            </tr>
+
+
+
+                            <tr>
+                                <td colspan="19">
+                                    <div class="loading shimmer-effect"></div>
+                                </td>
+                            </tr>
+
+
+
+                            <tr>
+                                <td colspan="19">
+                                    <div class="loading shimmer-effect"></div>
+                                </td>
+                            </tr>
+
+
+
+                            <tr>
+                                <td colspan="19">
+                                    <div class="loading shimmer-effect"></div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td colspan="19">
+                                    <div class="loading shimmer-effect"></div>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+
+                    <div class="table-footer">
+                        <p>Showing 1 to 5 of 1,248 results</p>
+
+                        <div class="table-pagination">
+                            <button type="button">‹</button>
+                            <button type="button" class="is-active">1</button>
+                            <button type="button">2</button>
+                            <button type="button">3</button>
+                            <button type="button">›</button>
+                        </div>
+                    </div>
+                </section>
             </main>
+
+            <!-- <main class="pm-page">
+
+                <header class="main-head">
+                    <h1>Preventive maintenance</h1>
+                    <p style="text-transform: lowercase;">view and manage and track all maintenance work orders.</p>
+                </header>
+
+                <section class="kpi-cards">
+                    <div class="cards">
+                        <div class="continer-card">
+                            <div class="wo-icon">
+                                <img class="icon" src="./assets/icons/to-do-list.png" alt="opened work order">
+                            </div>
+                            <div class="title">
+                                <p class="title-text"> Total work order</p>
+                                <div class="value">
+                                    <p>248</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-green" src="./assets/icons/arrow-up.svg" alt="arrow up">
+                                        <span class="green">12%</span>
+                                        <p>from last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="linechart-img">
+
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div class="continer-card">
+                            <div class="wo-icon orange">
+                                <img class="icon" src="./assets/icons/clock.png" alt="opened work order">
+                            </div>
+                            <div class="title">
+                                <p class="title-text"> open</p>
+                                <div class="value">
+                                    <p>18</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-green" src="./assets/icons/arrow-up.svg" alt="arrow up">
+                                        <span class="green">12%</span>
+                                        <p>from last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="linechart-img">
+
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div class="continer-card">
+                            <div class="wo-icon red">
+                                <img class="icon calendar" src="./assets/icons/calendar.svg" alt="opened work order">
+                            </div>
+                            <div class="title">
+                                <p class="title-text"> overdue</p>
+                                <div class="value">
+                                    <p>23</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-green" src="./assets/icons/arrow-up.svg" alt="arrow up">
+                                        <span class="percentage green">15%</span>
+                                        <p>from last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="linechart-img">
+
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div class="continer-card">
+                            <div class="wo-icon green">
+                                <img class="icon" src="./assets/icons/check.png" alt="availability icon">
+                            </div>
+                            <div class="title">
+                                <p class="title-text"> compeleted</p>
+                                <div class="value">
+                                    <p>101</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-green" src="./assets/icons/arrow-up.svg" alt="arrow up">
+                                        <span class="percentage green">10%</span>
+                                        <p>from last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="linechart-img">
+
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div class="continer-card">
+                            <div class="wo-icon blue">
+                                <img class="icon blue" src="./assets/icons/pause-circle.svg" alt="total downtime icon">
+                            </div>
+                            <div class="title">
+                                <p class="title-text">total downtime (hrs)</p>
+                                <div class="value">
+                                    <p>6.5</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-red" src="./assets/icons/arrow-down.svg" alt="arrow up">
+                                        <span class="percentage red">3%</span>
+                                        <p>from last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="linechart-img">
+
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="pm-toolbar">
+                    <div class="pm-toolbar-left">
+                        <select name="status" id="pm_status_selector">
+                            <option selected value="">Status</option>
+                            <option value="due-soon">Due Soon</option>
+                            <option value="scheduled">Scheduled</option>
+                            <option value="overdue">Overdue</option>
+                            <option value="completed">Completed</option>
+                        </select>
+
+                        <select name="priority" id="pm_priority_selector">
+                            <option selected value="">Priority</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+
+                        <select name="asset" id="pm_asset_selector">
+                            <option selected value="">Asset</option>
+                            <option value="pump">Centrifugal Pump #1</option>
+                            <option value="motor">Motor #3</option>
+                            <option value="sensor">Temperature Sensor #2</option>
+                        </select>
+
+                        <select name="location" id="pm_location_selector">
+                            <option selected value="">Location</option>
+                            <option value="zone-a">Zone A</option>
+                            <option value="zone-b">Zone B</option>
+                            <option value="zone-c">Zone C</option>
+                        </select>
+
+                        <button class="btn-pm btn-outline" type="button">Filters</button>
+                        <button class="btn-link-reset" type="button">Reset</button>
+                        <button class="btn-pm btn-outline  btn-create-work-order" type="button">Create work
+                            odred</button>
+                    </div>
+                </section>
+
+                <section class="pm-table-wrap">
+                    <table class="pm-table">
+                        <thead>
+                            <tr>
+                                <th>PM Task / Title</th>
+                                <th>Asset</th>
+                                <th>Frequency</th>
+                                <th>Next Due</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Last Completed</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Lubricate Bearings
+                                    <span class="sub-code">PMT-0012</span>
+                                </td>
+                                <td>
+                                    Centrifugal Pump #1
+                                    <span class="sub-code">PMP-001</span>
+                                </td>
+                                <td>Monthly</td>
+                                <td class="due-soon-date">May 26, 2025 <span class="sub-code">4 days</span></td>
+                                <td><span class="badge badge-priority-high">High</span></td>
+                                <td><span class="badge badge-status-due">Due Soon</span></td>
+                                <td>Apr 26, 2025</td>
+                                <td><button class="table-action-btn" type="button">⋮</button></td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Inspect Motor
+                                    <span class="sub-code">PMT-0013</span>
+                                </td>
+                                <td>
+                                    Motor #3
+                                    <span class="sub-code">MTR-003</span>
+                                </td>
+                                <td>Monthly</td>
+                                <td class="due-soon-date">May 27, 2025 <span class="sub-code">3 days</span></td>
+                                <td><span class="badge badge-priority-medium">Medium</span></td>
+                                <td><span class="badge badge-status-due">Due Soon</span></td>
+                                <td>Apr 27, 2025</td>
+                                <td><button class="table-action-btn" type="button">⋮</button></td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Clean Air Filter
+                                    <span class="sub-code">PMT-0017</span>
+                                </td>
+                                <td>
+                                    Air Compressor #2
+                                    <span class="sub-code">CMP-002</span>
+                                </td>
+                                <td>Monthly</td>
+                                <td>Jun 07, 2025 <span class="sub-code">14 days</span></td>
+                                <td><span class="badge badge-priority-low">Low</span></td>
+                                <td><span class="badge badge-status-scheduled">Scheduled</span></td>
+                                <td>May 07, 2025</td>
+                                <td><button class="table-action-btn" type="button">⋮</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="table-footer">
+                        <p>Showing 1 to 5 of 1,248 results</p>
+
+                        <div class="table-pagination">
+                            <button type="button">‹</button>
+                            <button type="button" class="is-active">1</button>
+                            <button type="button">2</button>
+                            <button type="button">3</button>
+                            <button type="button">›</button>
+                        </div>
+                    </div>
+                </section>
+            </main> -->
+
+            <!-- <main class="inventory-page">
+                <header class="main-head">
+                    <h1>Inventory</h1>
+                    <p>Track and manage inventory items, stock levels and locations.</p>
+                </header>
+
+                <section class="kpi-cards inventory-kpis">
+                    <div class="cards">
+                        <div class="continer-card">
+                            <div class="wo-icon">
+                                <img class="icon" src="./assets/icons/to-do-list.png" alt="Total items" />
+                            </div>
+                            <div class="title">
+                                <p class="title-text">Total Items</p>
+                                <div class="value">
+                                    <p>1,248</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-green" src="./assets/icons/arrow-up.svg" alt="up" />
+                                        <span class="green">8%</span>
+                                        <p>from last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div class="continer-card">
+                            <div class="wo-icon green">
+                                <img class="icon" src="./assets/icons/check.png" alt="In stock" />
+                            </div>
+                            <div class="title">
+                                <p class="title-text">In Stock Items</p>
+                                <div class="value">
+                                    <p>985</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-green" src="./assets/icons/arrow-up.svg" alt="up" />
+                                        <span class="green">12%</span>
+                                        <p>from last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div class="continer-card">
+                            <div class="wo-icon red">
+                                <img class="icon calendar" src="./assets/icons/calendar.svg" alt="Low stock" />
+                            </div>
+                            <div class="title">
+                                <p class="title-text">Low Stock Items</p>
+                                <div class="value">
+                                    <p>220</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-red" src="./assets/icons/arrow-down.svg" alt="down" />
+                                        <span class="red">5%</span>
+                                        <p>from last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div class="continer-card">
+                            <div class="wo-icon orange">
+                                <img class="icon" src="./assets/icons/clock.png" alt="Out of stock" />
+                            </div>
+                            <div class="title">
+                                <p class="title-text">Out of Stock</p>
+                                <div class="value">
+                                    <p>7</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-red" src="./assets/icons/arrow-down.svg" alt="down" />
+                                        <span class="red">2%</span>
+                                        <p>from last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div class="continer-card">
+                            <div class="wo-icon orange">
+                                <img class="icon" src="./assets/icons/clock.png" alt="Reorder items" />
+                            </div>
+                            <div class="title">
+                                <p class="title-text">Reorder Items</p>
+                                <div class="value">
+                                    <p>36</p>
+                                    <div class="sub-details">
+                                        <img class="icon arrow-green" src="./assets/icons/arrow-up.svg" alt="up" />
+                                        <span class="green">7%</span>
+                                        <p>from last month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="inv-toolbar">
+                    <div class="inv-toolbar-left">
+                        <select name="category" id="inv_category_selector">
+                            <option selected value="">Category</option>
+                            <option value="mechanical">Mechanical</option>
+                            <option value="electrical">Electrical</option>
+                            <option value="lubricants">Lubricants</option>
+                        </select>
+
+                        <select name="location" id="inv_location_selector">
+                            <option selected value="">Location</option>
+                            <option value="main-warehouse">Main Warehouse</option>
+                            <option value="maintenance-store">Maintenance Store</option>
+                        </select>
+
+                        <select name="status" id="inv_status_selector">
+                            <option selected value="">Stock Status</option>
+                            <option value="in-stock">In Stock</option>
+                            <option value="low-stock">Low Stock</option>
+                            <option value="out-of-stock">Out of Stock</option>
+                        </select>
+
+
+                        <button class="btn-inv btn-outline" type="button">Filters</button>
+                        <button class="btn-link-reset" type="button">Reset</button>
+                    </div>
+
+                    <div class="inv-toolbar-right">
+                        <button class="btn-inv btn-primary" type="button">Add Inventory</button>
+                    </div>
+                </section>
+
+                
+                <section class="inv-table-wrap">
+                    <table class="inv-table">
+                        <thead>
+                            <tr>
+                                <th>Item Code</th>
+                                <th>Item Name</th>
+                                <th>Category</th>
+                                <th>UOM</th>
+                                <th>Location</th>
+                                <th>On Hand</th>
+                                <th>Reserved</th>
+                                <th>Available</th>
+                                <th>Unit Cost</th>
+                                <th>Stock Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="inv-code">ITM-1001</td>
+                                <td>Bearing 6205</td>
+                                <td>Mechanical</td>
+                                <td>PCS</td>
+                                <td>Main Warehouse</td>
+                                <td>120</td>
+                                <td>15</td>
+                                <td class="available-good">105</td>
+                                <td>$4.25</td>
+                                <td class="status-field"><span class="badge-status status-in">In Stock</span></td>
+                                <td><button class="table-action-btn" type="button">⋮</button></td>
+                            </tr>
+
+                            <tr>
+                                <td class="inv-code">ITM-1002</td>
+                                <td>V-Belt A-32</td>
+                                <td>Mechanical</td>
+                                <td>PCS</td>
+                                <td>Main Warehouse</td>
+                                <td>45</td>
+                                <td>5</td>
+                                <td class="available-low">40</td>
+                                <td>$12.30</td>
+                                <td class="status-field"><span class="badge-status status-low">Low Stock</span></td>
+                                <td><button class="table-action-btn" type="button">⋮</button></td>
+                            </tr>
+
+                            <tr>
+                                <td class="inv-code">ITM-1003</td>
+                                <td>Motor 5HP</td>
+                                <td>Electrical</td>
+                                <td>PCS</td>
+                                <td>Electrical Store</td>
+                                <td>7</td>
+                                <td>2</td>
+                                <td class="available-low">5</td>
+                                <td>$285.00</td>
+                                <td class="status-field"><span class="badge-status status-low">Low Stock</span></td>
+                                <td><button class="table-action-btn" type="button">⋮</button></td>
+                            </tr>
+
+                            <tr>
+                                <td class="inv-code">ITM-1004</td>
+                                <td>Oil 5W-30 (1L)</td>
+                                <td>Lubricants</td>
+                                <td>LTR</td>
+                                <td>Maintenance Store</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td class="available-out">0</td>
+                                <td>$7.90</td>
+                                <td class="status-field"><span class="badge-status status-out">Out of Stock</span></td>
+                                <td><button class="table-action-btn" type="button">⋮</button></td>
+                            </tr>
+
+                            <tr>
+                                <td class="inv-code">ITM-1005</td>
+                                <td>Air Filter</td>
+                                <td>Filters</td>
+                                <td>PCS</td>
+                                <td>Maintenance Store</td>
+                                <td>32</td>
+                                <td>4</td>
+                                <td class="available-good">28</td>
+                                <td>$16.00</td>
+                                <td class="status-field"><span class="badge-status status-in">In Stock</span></td>
+                                <td><button class="table-action-btn" type="button">⋮</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="inv-table-footer">
+                        <p>Showing 1 to 5 of 1,248 results</p>
+
+                        <div class="table-pagination">
+                            <button type="button">‹</button>
+                            <button type="button" class="is-active">1</button>
+                            <button type="button">2</button>
+                            <button type="button">3</button>
+                            <button type="button">›</button>
+                        </div>
+                    </div>
+                </section>
+            </main> -->
+
         </div>
         <!-- main -->
     </div>
@@ -506,7 +1299,8 @@
     </footer>
 
 
-    <script src=" ./assets/js/chart.umd.js"></script>
+    <script type="module" src="./assets/js/renderApiCallOnHtml.js"></script>
+    <script src="./assets/js/chart.umd.js"></script>
     <script src="./assets/js/chart_manipulation/dashboard_render.js"></script>
     <script src="./assets/js/main.js"></script>
 </body>
