@@ -7,3 +7,14 @@
         background-position: -200% 0;
     }
 }
+
+@keyframes Online-blink {
+
+    from {
+        box-shadow: 0px 0px 0px 2px #00800042;
+    }
+
+    to {
+        box-shadow: -1px 1px 10px 6px #00800042;
+    }
+}

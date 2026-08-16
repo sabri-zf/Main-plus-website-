@@ -105,30 +105,38 @@
 
 .inv-table thead th {
     text-align: left;
-    font-size: 12px;
-    font-weight: 700;
     color: #636a80;
     padding: 12px 14px;
     background: #fcfcff;
     border-bottom: 1px solid #ececf3;
     white-space: nowrap;
+    font-size: 13px;
+}
+
+.inv-table tbody td:first-child {
+    font-weight: var(--font-bold);
+    color: var(--accent-color);
+
 }
 
 .inv-table tbody td {
-    font-size: 13px;
-    /* color: #2b3042; */
-    padding: 12px 14px;
+    padding: .5rem;
     border-bottom: 1px solid #f0f1f6;
-    vertical-align: middle;
+    font-size: 11px;
+}
+
+
+
+.inv-table tbody tr {
+    position: relative;
+}
+
+.inv-table tbody tr .loading {
+    border-radius: 0;
 }
 
 .inv-table tbody tr:hover {
     background: #fafaff;
-}
-
-.inv-code {
-    color: var(--accent-color);
-    font-weight: 700;
 }
 
 .available-good {

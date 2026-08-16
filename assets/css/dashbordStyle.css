@@ -172,29 +172,6 @@ aside>#logo-main-plus>img {
     height: 50px;
 }
 
-/* aside>#logo-main-plus .logo-character {
-    color: var(--accent-color);
-}
-
-aside .quick-cration-wr>.btn-quick-wr {
-    padding: var(--space-2) var(--space-3);
-    border: 1px solid transparent;
-    border-radius: var(--radius-lg);
-    color: var(--secondary-color);
-    background-color: var(--accent-color);
-    text-transform: capitalize;
-    font-size: var(--text-size-sm);
-    cursor: pointer;
-    transition: var(--transition-normal);
-    margin-bottom: var(--space-2);
-}
-
-
-aside .quick-cration-wr>.btn-quick-wr:hover {
-    background-color: var(--secondary-color);
-    color: var(--accent-color);
-    border: 1px solid var(--accent-color);
-} */
 
 .navigation-menu {
     flex: 1;
@@ -209,6 +186,12 @@ aside .quick-cration-wr>.btn-quick-wr:hover {
     text-align: center;
     gap: var(--space-2) 0;
     list-style-type: none;
+}
+
+.navigation-menu>.menu-list>li.btn>svg,
+.navigation-menu>.menu-list>li.btn>path {
+    fill: white;
+    width: 15px;
 }
 
 .navigation-menu .setting-btn,
@@ -237,12 +220,6 @@ aside .quick-cration-wr>.btn-quick-wr:hover {
     background-color: var(--bg-color);
 }
 
-svg,
-path {
-
-    fill: white;
-    width: 15px;
-}
 
 .navigation-menu>.menu-list li:hover>svg,
 .navigation-menu>.menu-list li:hover>svg path {
@@ -251,7 +228,7 @@ path {
 
 
 .navigation-menu>.menu-list li#active-page {
-    background-color: var(--bg-color);
+    background-color: var(--card-color);
 }
 
 li#active-page>svg,
@@ -283,6 +260,7 @@ li#active-page>svg>path {
 /* main-head */
 .main-head {
     margin-bottom: var(--space-3);
+    margin-left: var(--space-6);
 }
 
 .main-head>h1 {
@@ -313,9 +291,11 @@ li#active-page>svg>path {
     position: relative;
     background-color: var(--card-color);
     padding: var(--space-3) var(--space-2);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     box-shadow: -1px 3px 10px 0px #7f859921;
     flex: 1;
+    border-bottom: 3.5px solid transparent;
+    border-image: linear-gradient(to right, #2a0e5b, #8880ee, #2a0e5b) 3;
 }
 
 .cards::before {
@@ -329,16 +309,17 @@ li#active-page>svg>path {
     z-index: 3;
 }
 
-.cards>.loading {
+.loading {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 12px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+
 
     /* Base color */
-    background: #f6f6f6;
+    background: #ededed;
 
     /* Shimmer layer */
     background-image: linear-gradient(120deg,
@@ -366,18 +347,18 @@ li#active-page>svg>path {
     gap: var(--space-1) 0;
 }
 
-.work-order-recent-list>.wo-list .card-details>.wo-id-machinename>.wo-icon,
+/* .work-order-recent-list>.wo-list .card-details>.wo-id-machinename>.wo-icon,
 .cards>.continer-card>.wo-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: var(--radius-xl);
-    width: calc(var(--space-8));
-    height: calc(var(--space-8));
-    background-color: var(--bg-color-primary);
-}
+    /* display: flex; */
+/* justify-content: center; */
+/* align-items: center; */
+/* border-radius: var(--radius-xl); */
+/* width: calc(var(--space-8)); */
+/* height: calc(var(--space-8)); */
+/* background-color: var(--bg-color-primary); 
+} */
 
-.cards>.continer-card>.wo-icon.red {
+/* .cards>.continer-card>.wo-icon.red {
     background-color: var(--bg-color-danger);
 }
 
@@ -391,7 +372,7 @@ li#active-page>svg>path {
 
 .cards>.continer-card>.wo-icon.blue {
     background-color: var(--bg-color-blue);
-}
+} */
 
 .cards>.title .icon {
     width: calc(var(--icon-size) - 0.2em);
@@ -485,7 +466,8 @@ li#active-page>svg>path {
     background-color: var(--surface);
     padding: var(--space-1);
     border-radius: var(--space-4);
-    box-shadow: 0px -2px 6px 0px #6b648052;
+    box-shadow: 0px 0px 6px 0px #6b64801f;
+    position: relative;
 }
 
 .grid-dashbord .box>.details-of-chart {
@@ -495,7 +477,6 @@ li#active-page>svg>path {
 .box {
     width: 100%;
     padding: var(--space-1) var(--space-2);
-    position: relative;
 }
 
 .box .bar-container {
@@ -503,41 +484,44 @@ li#active-page>svg>path {
     height: 270px;
 }
 
-.box .doughnut-container {
+.doughnut-container {
     width: 200px;
     /* height: 200px; */
 }
 
-.box>.total-state {
+.box .doughunt-contianer-box {
+    display: flex;
+    gap: var(--space-6) 0;
+    padding: var(--space-4);
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.doughnut-container.asset-overview .total-state,
+.total-state {
     background-color: transparent;
-    padding: var(--space-2) var(--space-3);
     color: var(--foreground-text-color);
     font-weight: var(--font-bold);
-    border-radius: 3.2em;
-    width: 6em;
-    height: 6em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     position: absolute;
     top: 107px;
-    left: 74px;
     z-index: 1;
 }
 
-.box.assets-health .total-state {
-    top: 155px;
-    left: 71px;
-}
 
 .doughnut-container>#doughnut-chart {
     width: 100%;
     height: 100%;
 }
 
+.doughnut-container.asset-health {
+    padding: 0;
+}
+
 canvas {
     image-rendering: pixelated;
+    width: 100%;
+    height: 100%;
 }
 
 .bar-container #mychart {
@@ -549,22 +533,25 @@ canvas {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: var(--space-2) 0 var(--space-2) var(--space-3);
+    margin: var(--space-2) 0 0 var(--space-3);
 }
 
 .title-and-selection>.chart-title {
     color: var(--foreground-text-color);
+    font-size: 1.2rem;
+}
+
+.legend-data {
+    margin-top: var(--space-5);
 }
 
 .legend-data ul {
-    position: absolute;
-    top: 55px;
-    left: 71px;
     display: flex;
     align-items: center;
     gap: 0 var(--space-4);
     color: var(--muted-foreground-text-color);
     list-style-type: none;
+    justify-content: center;
 }
 
 .dounghnut-legend>ul li,
@@ -616,30 +603,10 @@ ul li .circle.worning {
 
 }
 
-.box .doughunt-contianer-box {
-    display: flex;
-    gap: 0 var(--space-6);
-    padding: var(--space-4);
-}
-
-.dounghnut-legend {
-    flex: 1;
-    position: relative;
-}
-
 .dounghnut-legend>ul {
     display: flex;
-    flex-direction: column;
     gap: var(--space-6);
     list-style-type: none;
-    position: absolute;
-    top: 50px;
-    top: 32px;
-    left: 14px;
-}
-
-.dounghnut-legend.asset-health-legend>ul {
-    top: 72px;
 }
 
 #select-date {
@@ -666,7 +633,7 @@ ul li .circle.worning {
 /* recent workorder*/
 
 .work-order-recent-list {
-    margin-bottom: var(--space-4);
+    margin: 0.9rem 0;
 }
 
 .box .btn-view-all-recent-work-order {
@@ -703,7 +670,7 @@ ul li .circle.worning {
     justify-items: center;
     align-items: center;
     gap: 0 var(--space-3);
-    /* margin: var(--space-) 0; */
+    width: 40%;
 }
 
 .work-order-recent-list>.wo-list .card-details>.wo-id-machinename>.wo-icon {
@@ -759,8 +726,6 @@ ul li .circle.worning {
 
 .box.mtbf-chart .mtbf-chart-contianer {
     width: 100%;
-    height: 300px;
-    margin-top: var(--space-10);
 }
 
 .mtbf-mttr-chart-legend {
@@ -801,6 +766,7 @@ ul li .circle.worning {
 
 .top-five-assets-table>table td {
     font-weight: 400;
+    width: 200px;
 }
 
 .top-five-assets-table tbody>tr {
@@ -818,34 +784,44 @@ ul li .circle.worning {
 .top-five-assets-table>table>tbody td.total-value {
     display: flex;
     align-items: center;
+    justify-content: start;
     gap: 0 var(--space-2);
 }
 
+.top-five-assets-table>table>tbody td #bar-progress-background,
 .top-five-assets-table>table>tbody td .progress-bar {
     width: 100%;
-    height: .3em;
+    height: .6em;
     background-color: var(--destructive-color);
     border-radius: 0.3em;
+    flex: 0 1 58%;
+}
+
+.top-five-assets-table>table>tbody td #bar-progress-background {
+    background-color: var(--bg-color-danger);
+    margin-left: auto;
+
 }
 
 .top-five-assets-table>table>tbody td .progress-bar.value-1 {
-    width: 30%;
+    width: 35%;
 }
 
 .top-five-assets-table>table>tbody td .progress-bar.value-2 {
-    width: 50%;
+    width: 32.5%;
 }
 
 .top-five-assets-table>table>tbody td .progress-bar.value-3 {
-    width: 20%;
+    width: 32.5%;
 }
 
 .top-five-assets-table>table>tbody td .progress-bar.value-4 {
-    width: 15%;
+    width: 70%;
+
 }
 
 .top-five-assets-table>table>tbody td .progress-bar.value-5 {
-    width: 5%;
+    width: 80%;
 }
 
 /* top 5 assets by downtime */

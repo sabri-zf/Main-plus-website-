@@ -4,10 +4,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 1em;
+    font-size: .96em;
     font-family: var(--font-family);
     color: var(--foreground-text-color);
+
     /* text-transform: capitalize; */
+}
+
+html {
+    scroll-behavior: smooth;
+
 }
 
 :root {
@@ -17,7 +23,7 @@
     /* for hover or shoft highlight*/
 
     --accent-color: #7B3DE6;
-    --ring-color: rgba(141, 79, 255, 0.4);
+    --ring-color: rgba(11, 10, 13, 0.4);
     /* border of input or button , or forms , or modals*/
 
     --bg-color: #FBFBFD;
@@ -82,6 +88,9 @@
     --text-size-lg: 18px;
     --text-size-xl: 20px;
     --text-size-3xl: 30px;
+    --text-size-3xl: 30px;
+    --text-size-4xl: 40px;
+
 
     --font-regular: 400;
     --font-medium: 500;
@@ -108,4 +117,8 @@ body {
     /* min-height: 200vh; */
     text-transform: capitalize;
 
+}
+
+ul {
+    list-style-type: none;
 }

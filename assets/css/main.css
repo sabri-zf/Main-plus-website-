@@ -2,4 +2,7 @@
 @import url(./workorderStyle.css);
 @import url(./preventive_maintenanceStyle.css);
 @import url(./inventoryStyle.css);
+@import url(./assetStyle.css);
+@import url(./analytic.css);
+@import url(./monitoringStyle.css);
 @import url(./animation.css);
