@@ -1,126 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
+import { startVibrationStream } from "../../real_time/vibration_real_time";
+import { URI } from "../../Utility/Configuration";
+import { PostQueryAPI } from "../FetchApi";
+import { RenderRealMonitoring } from "./RenderMonitoring";
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/main.css" />
-    <!-- google font temporary -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
-        rel="stylesheet">
-    <title>Dashboard</title>
-</head>
 
-<body>
-    <!-- <div class="layout-container"> -->
-    <!-- sidebar -->
-    <aside class="sidebar-meanu">
-        <div id="logo-main-plus">
-            <img src="./assets/images/main-plus-logo.png" alt="">
-        </div>
-        <!-- <div class="quick-cration-wr">
-            <button class="btn-quick-wr">create quick work order</button>
-        </div> -->
-        <nav class="navigation-menu">
-            <ul class="menu-list">
-                <li id="active-page" class="btn dashbord-btn">
-                    <svg width="25" height="25" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="white"
-                            d="M10 14a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1zm11-5a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1V10a1 1 0 0 1 1-1zM10 2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm11 0a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" />
-                    </svg>
-                </li>
-                <li class="btn workorder-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" xml:space="preserve" fill="white">
-                        <path d="M10 24H0V0h18v11h-2V2H2v5h14v2H2v3h13.1v2H2v3h11v2H2v3h8z" />
-                        <path
-                            d="M12 3h3v3h-3zm10.7 11.7-2 2-1.4-1.4 2-2c-.4-.2-.9-.3-1.3-.3q-1.2 0-2.1.9c-.9.9-1.1 2.3-.6 3.4l-5.1 5.1 1.4 1.4 5.1-5.1c1.1.5 2.5.3 3.4-.6.6-.6.9-1.4.9-2.1 0-.5-.1-.9-.3-1.3" />
-                    </svg>
+export function renderRealTimeMonitoring() {
 
-                </li>
-                <li class="btn assets-btn">
-                    <svg width="25" height="25" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#fff"
-                            d="M12 6V2L8 0 4 2v4L0 8v5l4 2 4-2 4 2 4-2V8zM8.09 1.12 11 2.56l-2.6 1.3-2.91-1.44zM5 2.78l3 1.5v3.6l-3-1.5zm-1 11.1-3-1.5v-3.6l3 1.5zm.28-4L1.4 8.42 4 7.12l2.88 1.44zm7.72 4-3-1.5v-3.6l3 1.5zm.28-4L9.4 8.42l2.6-1.3 2.88 1.44z" />
-                    </svg>
-                </li>
-                <li class="btn pm-btn">
-                    <svg width="25" height="25" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                        <title />
-                        <path
-                            d="M42.535 54.254 32 60l-10.535-5.746A22 22 0 0 1 10 34.94V14A10 10 0 0 0 20 4h24a10 10 0 0 0 10 10v20.94a22 22 0 0 1-11.465 19.314" />
-                    </svg>
-                </li>
-                <li class="btn inventory-btn">
-                    <svg width="25" height="25" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M0 4.6A2.6 2.6 0 0 1 2.6 2h18.8A2.6 2.6 0 0 1 24 4.6v.8A2.6 2.6 0 0 1 21.4 8H21v10.6c0 1.33-1.07 2.4-2.4 2.4H5.4C4.07 21 3 19.93 3 18.6V8h-.4A2.6 2.6 0 0 1 0 5.4zM2.6 4a.6.6 0 0 0-.6.6v.8a.6.6 0 0 0 .6.6h18.8a.6.6 0 0 0 .6-.6v-.8a.6.6 0 0 0-.6-.6zM8 10a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2z" />
-                    </svg>
-                </li>
-                <li class="btn analytic-btn">
-                    <svg width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
-                        xml:space="preserve">
-                        <path
-                            d="M21 9c-1.9 1.2-3 3.4-3 5.6v0c0 3.5 1.3 6.8 3.6 9.4l1.5 1.6c1.1 1.3.2 3.3-1.5 3.3H10.5c-1.7 0-2.6-2-1.5-3.3l1.5-1.6c2.3-2.6 3.6-6 3.6-9.4v0c0-2.3-1.1-4.4-3-5.6zm-2-8v1m-6 0v1m3 2v1m-6 19h12" />
-                    </svg>
-                </li>
+    const btn = '.monitoring-action-btn--monitor';
+    const openChartPageBtn = document.querySelectorAll(btn);
 
-                <li class="btn real-monitoring-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 32 32" xml:space="preserve">
-                        <path
-                            d="M23 28c-1.1 0-2.1-.7-2.5-1.8 0-.1 0-.2-.1-.2h-8.9c0 .1 0 .2-.1.2-.3 1.1-1.3 1.8-2.4 1.8-.6 0-1 .4-1 1s.4 1 1 1h14c.6 0 1-.4 1-1s-.4-1-1-1m4-25H5C3.3 3 2 4.3 2 6v15c0 1.7 1.3 3 3 3h22c1.7 0 3-1.3 3-3V6c0-1.7-1.3-3-3-3m-2 12h-5c-.3 0-.6-.2-.8-.4l-.9-1.4-1.3 3.2c-.2.3-.6.6-1 .6q-.6 0-.9-.6l-1.4-2.8-1 1c-.2.3-.4.4-.7.4H7c-.6 0-1-.4-1-1s.4-1 1-1h4.6l1.7-1.7c.2-.2.6-.3.9-.3.3.1.6.3.7.5l1 2 1.2-2.9c.1-.3.5-.6.8-.6.4 0 .7.1.9.4l1.7 2.6H25c.6 0 1 .4 1 1s-.4 1-1 1" />
-                    </svg>
-                </li>
-            </ul>
-            <div class="setting-btn">
-                <svg width="15" height="25" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#fff"
-                        d="M11.078 0c.294 0 .557.183.656.457l.706 1.957q.379.094.654.192.3.107.78.33l1.644-.87a.7.7 0 0 1 .832.131l1.446 1.495c.192.199.246.49.138.744l-.771 1.807q.191.352.308.604.126.273.312.76l1.797.77c.27.115.437.385.419.674l-.132 2.075a.69.69 0 0 1-.46.605l-1.702.605q-.073.352-.154.606a9 9 0 0 1-.298.774l.855 1.89a.68.68 0 0 1-.168.793l-1.626 1.452a.7.7 0 0 1-.796.096l-1.676-.888a7 7 0 0 1-.81.367l-.732.274-.65 1.8a.7.7 0 0 1-.64.457L9.11 20a.7.7 0 0 1-.669-.447l-.766-2.027a15 15 0 0 1-.776-.29 10 10 0 0 1-.618-.293l-1.9.812a.7.7 0 0 1-.755-.133L2.22 16.303a.68.68 0 0 1-.155-.783l.817-1.78a10 10 0 0 1-.302-.644 14 14 0 0 1-.3-.811L.49 11.74a.69.69 0 0 1-.49-.683l.07-1.921a.69.69 0 0 1 .392-.594L2.34 7.64q.13-.478.23-.748a9 9 0 0 1 .314-.712L2.07 4.46a.68.68 0 0 1 .15-.79l1.404-1.326a.7.7 0 0 1 .75-.138l1.898.784q.314-.209.572-.344.307-.162.824-.346l.66-1.841A.7.7 0 0 1 8.984 0zm-1.054 7.019c-1.667 0-3.018 1.335-3.018 2.983s1.351 2.984 3.018 2.984 3.017-1.336 3.017-2.984-1.35-2.983-3.017-2.983" />
-                </svg>
-            </div>
-        </nav>
 
-    </aside>
-    <!-- sidebar -->
-    <div class="wrap-layout-continer">
-        <!-- header -->
-        <header class="header-page">
-            <div class="left-header search-bar">
-                <!-- <img id="search-icon" class="icon" src="./assets/icons/search.png" alt="Search icon">
-                <input id="search-bar" type="text" name="search-bar" placeholder="search..."> -->
+    openChartPageBtn.forEach(e => {
+        e.addEventListener('click', () => { chartPage(e) });
 
-                <!-- <img id="arrow-get-back" src="./assets/icons/arrow-left.svg" alt="arrow to get back">
-                <p id="get-back">Back to Real monitoring</p> -->
-            </div>
-            <div class="right-header">
-                <div class="notification-icon">
-                    <img id="noifi-icon" class="icon" src="./assets/icons/notification.png" alt="Notification icon">
-                </div>
-                <div class="emial-icon">
-                    <img id="emi-icon" class="icon" src="./assets/icons/email.png" alt="Emial icon" />
-                </div>
-                <div class="user-details">
-                    <div class="avatar">
-                        <img id="user-avatar" class="icon" src="./assets/images/manager.jpg" alt="User avatar">
-                    </div>
-                    <div class="user-data">
-                        <p class="user-fullName">sabri zekkour feraht</p>
-                        <span class="user-role">engineer</span>
-                    </div>
-                    <div class="drop-down-menu">
-                        <img id="drow-down-icon" class="icon" src="./assets/icons/down-arrow.png" alt="Drop down menu">
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- header -->
+    });
 
-        <!-- main -->
-        <div class="main-container">
+}
 
-            <!-- <main class="real-monitoring-vibration">
+function chartPage(e) {
+    localStorage.clear();
+    getHeadData(e)
+    getBodyData(e);
+
+    RenderMonitoringPage();
+    setValuesOnPage();
+}
+
+function getHeadData(e) {
+    const machineName = e.parentElement.parentElement.firstElementChild.firstElementChild.firstElementChild.textContent;
+    const IsActive = e.parentElement.parentElement.querySelector(".monitoring-machine-badge--active").textContent == 'active' ? true : false;
+    const tagNumber = e.parentElement.parentElement.firstElementChild.nextSibling.nextSibling.textContent;
+
+    localStorage.setItem("IsActive", IsActive);
+    localStorage.setItem("MachineName", machineName);
+    localStorage.setItem("TagNumber", tagNumber);
+}
+
+function getBodyData(e) {
+    const bodyElement = e.parentElement.parentElement.querySelector(".monitoring-machine-card__body .monitoring-machine-card__meta");
+    const Location = bodyElement.firstElementChild.lastElementChild.textContent;
+    const InstailltionDate = bodyElement.firstElementChild.nextSibling.nextSibling.lastElementChild.textContent;
+
+    localStorage.setItem("Location", Location);
+    localStorage.setItem("Installation", InstailltionDate);
+
+}
+
+
+function RenderMonitoringPage() {
+
+    const Contaniner = document.querySelector(".main-container");
+
+    Contaniner.innerHTML = "";
+
+    const htmlContant = `  <main class="real-monitoring-vibration">
 
                 <header class="vibration-head">
                     <section class="Vib-title">
@@ -308,22 +241,40 @@
                     </aside>
 
                 </section>
-            </main> -->
+            </main>`;
 
-        </div>
-        <!-- main -->
-    </div>
+    Contaniner.insertAdjacentHTML("beforeend", htmlContant);
+    // setValuesOnPage();
+    startVibrationStream();
 
-    <footer>
-        <div class="copy-right">&copy; 2026 CMMS all rights reserved<br> powerd by <span id="devlopername">sabri</span>
-            <span id="developerlastname">Zekkour ferhat</span>
-        </div>
-    </footer>
+    SelectAxis();
+}
+
+function setValuesOnPage() {
+    const MacineNameEle = document.querySelector(".Vib-title #machine-Name");
+    MacineNameEle.textContent = localStorage.getItem("MachineName");
+    // const IsActive = document.querySelector(".Vib-title #machine-Name");
+    const meataData = document.querySelectorAll(".machine-metadata ul li");
+
+    meataData[0].innerHTML = `<li class="machine-data "><i class="metadata-icon"><img src="./assets/icons/MachineID.svg" alt="" srcset=""></i> Machine ID: ${localStorage.getItem("TagNumber")}</li>`;
+    meataData[1].innerHTML = `<li class="machine-data "><i class="metadata-icon"><img src="./assets/icons/Location.svg" alt="" srcset=""></i> ${localStorage.getItem("Location")}</li>`;
+    meataData[2].innerHTML = `<li class="machine-data "><i class="metadata-icon"><img src="./assets/icons/calender.svg" alt="" srcset=""></i> ${localStorage.getItem("Installation")}</li>`;
+}
+
+function SelectAxis() {
+
+    const Source = URI + 'V1/vibration/axis';
+    const axisSelect = document.querySelector("#select-axis");
+
+    axisSelect.addEventListener("change", e => {
+        const axis = e.target.value;
+        SendTheAxis(Source, axis);
+    });
+}
 
 
-    <script type="module" src="./assets/js/renderApiCallOnHtml.js"></script>
-    <script type="module" src="./assets/js/chart_manipulation/dashboard_render.js"></script>
-    <script type="module" src="./assets/js/main.js"></script>
-</body>
+async function SendTheAxis(URI, data) {
+    const result = await PostQueryAPI(URI, data);
 
-</html>
+    console.log(result);
+}

@@ -1,63 +1,37 @@
-
-
-const mainURL = "http://localhost:5189/api/v1/work-orders";
-
+import { fetchAPI } from '../FetchApi.js';
+import { RenderCreateWorkOrderModal } from './modals/wo_addNew.js'
+import { renderShowDetailsModal } from './modals/wo_showDetails.js'
+import { RenderWorkOrderKPI } from '../analytic/FetichKPI.js';
+import { URI } from '../../Utility/Configuration.js';
+const mainURL = URI + "v1/work-orders";
 let Data = [];
-export async function get_workOrderData(page = 1) {
 
-    try {
+export async function renderWorkorderOnDOM(page = 1) {
 
-        let response = await fetch(`${mainURL}?PageNumber${page}`);
-        if (response.status != 200) {
-            console.error(`(Status:${response.status}) - Erro occurred in the operation of fetch data `)
-        }
+    mockLoadEffect();
+    const succeed = await fetchAPI(`${mainURL}?PageNumber=${page}`);
 
-
-        const reslut = await response.json();
-
-        Resolved_Data(reslut);
-    } catch (e) {
-        console.error(e);
+    if (!succeed) {
+        console.error("Loading data has been failed");
+        return;
     }
 
+    Data = succeed;
+    RenderWorkOrderPage();
 }
 
-function Resolved_Data(data) {
+function mockLoadEffect() {
 
-    Data = data;
-}
-
-export function renderWorkorderOnDOM() {
-
-    const timeoutId = setTimeout(RenderWorkOrderPage, 2000);
-    // clearTimeout(timeoutId);
-}
-
-
-// function LabelOfMonths(index) {
-//     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-//     return months[index - 1];
-// }
-
-
-function renderHeadingTitle() {
-
-    const header = document.createElement("header");
-    header.setAttribute("class", "main-head");
-
-    const headerContant = ` <h1>worke orders</h1>
+    const mainContinarClass = document.querySelector('.main-container');
+    const waitingEffect = ` <main class="work-order-page">
+                <header class="main-head">
+                    <h1>worke orders</h1>
                     <p style="text-transform: lowercase;">view and manage and track all maintenance work orders.</p>
-                    `;
+                </header>
 
-    header.innerHTML = headerContant;
-    return header;
-}
-
-function renderKpiCards() {
-    const Card_KPI_Section = document.createElement("section");
-    Card_KPI_Section.setAttribute("class", "kpi-cards");
-
-    const cards_contant = `<div class="cards">
+                <section class="kpi-cards">
+                    <div class="cards">
+                        <div class="loading shimmer-effect"></div>
                         <div class="continer-card">
                             <div class="wo-icon">
                                 <img class="icon" src="./assets/icons/to-do-list.png" alt="opened work order">
@@ -80,6 +54,7 @@ function renderKpiCards() {
                     </div>
 
                     <div class="cards">
+                        <div class="loading shimmer-effect"></div>
                         <div class="continer-card">
                             <div class="wo-icon orange">
                                 <img class="icon" src="./assets/icons/clock.png" alt="opened work order">
@@ -104,6 +79,8 @@ function renderKpiCards() {
                     </div>
 
                     <div class="cards">
+                        <div class="loading shimmer-effect"></div>
+
                         <div class="continer-card">
                             <div class="wo-icon red">
                                 <img class="icon calendar" src="./assets/icons/calendar.svg" alt="opened work order">
@@ -128,6 +105,8 @@ function renderKpiCards() {
                     </div>
 
                     <div class="cards">
+                        <div class="loading shimmer-effect"></div>
+
                         <div class="continer-card">
                             <div class="wo-icon green">
                                 <img class="icon" src="./assets/icons/check.png" alt="availability icon">
@@ -152,6 +131,8 @@ function renderKpiCards() {
                     </div>
 
                     <div class="cards">
+                        <div class="loading shimmer-effect"></div>
+
                         <div class="continer-card">
                             <div class="wo-icon blue">
                                 <img class="icon blue" src="./assets/icons/pause-circle.svg" alt="total downtime icon">
@@ -174,27 +155,17 @@ function renderKpiCards() {
 
                         </div>
                     </div>
-`;
-
-    Card_KPI_Section.innerHTML = cards_contant;
+                </section>
 
 
-    return Card_KPI_Section;
-
-}
-
-function renderTablefilterOfTable() {
-
-    const toolBar = document.createElement("section");
-    toolBar.setAttribute("class", "wo-toolbar");
-
-    const toolBarContant = `<div class="wo-toolbar-left">
+                <section class="wo-toolbar">
+                    <div class="wo-toolbar-left">
                         <div class="wo-search">
-                            <input type="text" placeholder="Search WO-ID" value="WO-" />
+                            <input id="search-wo" name ="search-filter" type="text" placeholder="Search WO-ID" value="WO-" />
                         </div>
 
                         <select name="status" id="status_selector">
-                            <option selected value="">Status</option>
+                            <option selected value="status">Status</option>
                             <option value="open">Open</option>
                             <option value="in-progress">In Progress</option>
                             <option value="on-hold">On Hold</option>
@@ -214,6 +185,130 @@ function renderTablefilterOfTable() {
 
                     <div class="wo-toolbar-right">
                         <button id="btn-wo">Create Work Order</button>
+                    </div>
+                </section>
+
+                <section class="workorder-table-wrap">
+                    <table class="workorder-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Asset</th>
+                                <th>Type</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Assigned To</th>
+                                <th>Due Date</th>
+                                <th>Created</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                        
+                            <tr>
+                                <td colspan="19">
+                                    <div class="loading shimmer-effect"></div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td colspan="19">
+                                    <div class="loading shimmer-effect"></div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td colspan="19">
+                                    <div class="loading shimmer-effect"></div>
+                                </td>
+                            </tr>
+
+
+
+                            <tr>
+                                <td colspan="19">
+                                    <div class="loading shimmer-effect"></div>
+                                </td>
+                            </tr>
+
+
+
+                            <tr>
+                                <td colspan="19">
+                                    <div class="loading shimmer-effect"></div>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+
+                    <div class="table-footer">
+                        <p>Showing 1 to 5 of 1,248 results</p>
+
+                        <div class="table-pagination">
+                            <button type="button">‹</button>
+                            <button type="button" class="is-active">1</button>
+                            <button type="button">2</button>
+                            <button type="button">3</button>
+                            <button type="button">›</button>
+                        </div>
+                    </div>
+                </section>
+            </main>`;
+
+    mainContinarClass.innerHTML = waitingEffect;
+}
+
+function renderHeadingTitle() {
+
+    const header = document.createElement("header");
+    header.setAttribute("class", "main-head");
+
+    const headerContant = ` <h1>worke orders</h1>
+                    <p style="text-transform: lowercase;">view and manage and track all maintenance work orders.</p>
+                    `;
+
+    header.innerHTML = headerContant;
+    return header;
+}
+
+function renderTablefilterOfTable() {
+
+
+    const toolBar = document.createElement("section");
+    toolBar.setAttribute("class", "wo-toolbar");
+
+    const toolBarContant = `<div class="wo-toolbar-left">
+                        <div class="wo-search">
+                            <input id="search-wo" type="text" placeholder="Search WO-ID" value="WO-" />
+                        </div>
+
+                        <select name="status" id="status_selector">
+                            <option selected value="status">Status</option>
+                            <option value="open">Open</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="on-hold">On Hold</option>
+                            <option value="completed">Completed</option>
+                        </select>
+
+                        <select name="priority" id="priority_selector">
+                            <option selected value="">Priority</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+
+                        <button class="btn-wo btn-outline" type="button">Filters</button>
+                        <button class="btn-link-reset" type="button">Reset</button>
+                    </div>
+
+                    <div class="wo-toolbar-right">
+                        <button class= "btn-create" id="btn-wo">Create Work Order</button>
                     </div>`;
 
     toolBar.innerHTML = toolBarContant;
@@ -329,13 +424,50 @@ function RemoveLoadingShimmerEffect() {
     console.log("the process is done");
 
 }
-function RenderWorkOrderPage() {
-    console.log("it's runing");
 
-    RemoveLoadingShimmerEffect();
+function amendmentStyleOfWorkorderTd() {
+    const woIdClasses = document.querySelectorAll(".wo-id");
+
+    woIdClasses.forEach((e) => {
+        e.style.padding = 'none';
+        e.style.width = '100px';
+    });
+}
+
+function removeAllMenuBar() {
+    const SelectAccessed = document.querySelectorAll(".accessed");
+    SelectAccessed.forEach(e => {
+        console.log(e.firstChild.hasAttribute("type", "Button"));
+        if (!e.firstChild.hasAttribute("type", "Button")) {
+            e.firstChild.remove();
+            e.removeAttribute("class");
+        }
+    }
+    );
+}
+
+function renderMenuBar(createActionBtn) {
+
+    const HtMLText = `<div class ="option-list-continer">
+    <ul class ="menu-bar">
+    <li class ="option-value show"><span class ="svg-icon">${readSvgShowIcon('#7B3DE6')}</span> <button id class = "wo-btn" ="show-details">Show More</button></li>
+    <li class ="option-value update"><span class ="svg-icon">${readSvgUpdateIcon('#7B3DE6')}</span> <button id class = "wo-btn" ="update-wo-btn">Update</button></li>
+    <li class ="option-value delete"><span class ="svg-icon">${readSvgDeletIcon('#7B3DE6')}</span> <button id class = "wo-btn"  ="delete-wo-btn">Delete</button></li>
+    </ul>
+    </div>
+    `
+
+    createActionBtn.parentNode.insertAdjacentHTML("afterbegin", HtMLText);
+    createActionBtn.parentNode.setAttribute("class", "accessed");
+
+    console.log("it's clicked");
+    console.log(createActionBtn);
+}
+
+// output function
+function RenderWorkOrderPage() {
 
     const getMainContainerClass = document.querySelector(".main-container");
-
     getMainContainerClass.innerHTML = '';
 
     const createMain_workorder = document.createElement('main');
@@ -343,28 +475,78 @@ function RenderWorkOrderPage() {
 
     // append the contant into the main
     createMain_workorder.append(renderHeadingTitle());
-    createMain_workorder.append(renderKpiCards());
+    RenderWorkOrderKPI();
     createMain_workorder.append(renderTablefilterOfTable());
     createMain_workorder.append(renderTableWithData());
 
     // resize the table data field 
     getMainContainerClass.appendChild(createMain_workorder);
-
-    console.log(getMainContainerClass);
     amendmentStyleOfWorkorderTd();
+
+
+    const createWoBtn = document.querySelector(".btn-create");
+    const ActionBtns = document.querySelectorAll(".table-action-btn");
+    const RestFilter = document.querySelector(".btn-link-reset");
+
+    RestFilter.addEventListener('click', restAllThings);
+    createWoBtn.addEventListener('click', RenderCreateWorkOrderModal);
+
+    ActionBtns.forEach(e => {
+
+        e.onclick = () => {
+
+            if (e.parentNode.hasAttribute("class")) {
+                removeAllMenuBar();
+                return;
+            }
+
+            removeAllMenuBar();
+            renderMenuBar(e);
+
+            const ShowObj = {};
+            ShowObj.parentTr = e.parentNode.parentNode;
+            ShowObj.ShowClass = document.querySelector('li.show');
+            showWorkOrderDetailsAction(ShowObj);
+        }
+    }
+    );
+
 
 }
 
-function amendmentStyleOfWorkorderTd() {
-    const woIdClasses = document.querySelectorAll(".wo-id");
+function showWorkOrderDetailsAction(ShowObj) {
 
-    console.log(woIdClasses)
-    woIdClasses.forEach((e) => {
-        e.style.padding = 'none';
-        e.style.width = 'inherit';
+    // if (ShowObj.ShowClass == null) return;
+    ShowObj.ShowClass.addEventListener('click', () => {
+        const WoNumber = ShowObj.parentTr.firstChild.nextElementSibling.innerHTML;
+        console.log(WoNumber);
+        renderShowDetailsModal(WoNumber);
     });
 }
 
+function restAllThings() {
 
-// ActivePage.addEventListener("click", Render_work_order_table);
 
+    console.log("clicked")
+    const searchBar = document.querySelector('#search-wo');
+    const statusSelector = document.querySelector('#status_selector');
+    const priotitySelector = document.querySelector('#priority_selector');
+
+    searchBar.value = 'WO-';
+    statusSelector.selectedIndex = 0;
+    priotitySelector.selectedIndex = 0;
+}
+
+
+
+export function readSvgShowIcon(fill, width = "20") {
+    return `<svg width=${width} height="20" fill="${fill}" viewBox="0 -16 544 544" xmlns="http://www.w3.org/2000/svg"><title>show</title><path d="M272 400q-67 0-121-39-55-39-87-105 32-66 87-105 54-39 121-39 64 0 120 41 56 40 88 103-32 63-88 104-56 40-120 40m0-48q40 0 68-28t28-68-28-68-68-28-68 28-28 68 28 68 68 28m0-40q-23 0-39-16-17-17-17-40t17-39q16-17 39-17t40 17q16 16 16 39t-16 40q-17 16-40 16"/></svg>`;
+}
+
+export function readSvgUpdateIcon(fill, width) {
+    return `<svg xmlns="http://www.w3.org/2000/svg" width=${width} height="20" fill="${fill}" viewBox="0 0 20 20" xml:space="preserve"><path d="M17 20H1c-.6 0-1-.4-1-1V3c0-.6.4-1 1-1h9v2H2v14h14v-8h2v9c0 .6-.4 1-1 1"/><path d="M9.3 10.7c-.4-.4-.4-1 0-1.4l9-9c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-9 9c-.4.4-1 .4-1.4 0"/></svg>`;
+}
+
+export function readSvgDeletIcon(fill, width = "20") {
+    return `<svg width=${width} height="20" viewBox="0 0 24 24" fill="${fill}" xmlns="http://www.w3.org/2000/svg"><path d="M7 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2h4a1 1 0 1 1 0 2h-1.069l-.867 12.142A2 2 0 0 1 17.069 22H6.93a2 2 0 0 1-1.995-1.858L4.07 8H3a1 1 0 0 1 0-2h4zm2 2h6V4H9zM6.074 8l.857 12H17.07l.857-12zM10 10a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1m4 0a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0v-6a1 1 0 0 1 1-1"/></svg>`;
+}
